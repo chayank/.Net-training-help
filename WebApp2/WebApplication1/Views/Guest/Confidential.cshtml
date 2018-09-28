@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "Confidential";
+}
+
+<h2>Confidential</h2>
+
+
+@Html.ActionLink("go to dashboard", "dashboard", "Guest")
+@using (Html.BeginForm())
+{
+    <br />
+    <input type="submit" name="bp" value="logout" />
+}

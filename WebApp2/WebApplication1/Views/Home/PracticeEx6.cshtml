@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "PracticeEx6";
+}
+
+<h2>PracticeEx6</h2>
+
+
+
+<h1>HTML HELPERS</h1>
+
+@{
+    string msg = "hey welcome";
+    if (IsPost)
+    {
+        msg = "welcome back";
+    }
+}
+
+
+@using (Html.BeginForm())
+{
+
+    <input type="submit" />
+}
+
+
+
+
+@msg
+<br />
+@Html.ActionLink("go to home", "index", "home")

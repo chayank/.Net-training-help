@@ -1,0 +1,62 @@
+﻿<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/jquery.canvasjs.min.js"></script>
+<script>
+window.onload = function () {
+
+    var chart1 = new CanvasJS.Chart("chartContainer1", {
+        animationEnabled: true,
+       
+        axisY: {
+            title: "Current Price (Rs) -> ",
+            includeZero: false,
+            prefix: ""
+        },
+    axisX: {
+        title: "DateTime ->",
+        labelFormatter: function () {
+            return " ";
+        }
+    },
+
+	data: [{
+		type: "area",
+        toolTipContent: "<b>DateTime : </b>{label}<br/><b>Price : </b>{y}",
+        
+        dataPoints: @Html.Raw(ViewBag.DataPoints)
+	}]
+});
+
+
+    chart1.render();
+
+
+
+
+    setInterval(function () { inter() }, 10000);
+    function inter() {
+        var temp = [];
+        var i = 0;
+        var id=@ViewBag.sid;
+        $.getJSON("/Graphs/json?&sid="+id, function (data) {
+            
+            
+
+                chart1.options.data[0].dataPoints.push({ label: data[i].label, y: data[i].y });
+                
+          
+
+        });
+
+
+        chart1.render();
+
+
+    }
+
+
+
+}
+</script>
+<div></div>
+<div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+

@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Ex5";
+}
+
+<h2>Ex5</h2>
+
+<h2>Post back Ex5</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.Label("name", "enter name:  ")
+    @Html.TextBox("name")<br />
+    @: Choose gender
+    @Html.CheckBox("check", "") @: check
+
+
+
+
+    <input type="submit" />
+
+}
+
+
+@ViewBag.msg
+
+@Html.ActionLink("go to home", "index", "PostBackDemos")

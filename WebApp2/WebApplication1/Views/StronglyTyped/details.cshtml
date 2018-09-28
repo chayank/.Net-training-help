@@ -1,0 +1,19 @@
+﻿@using WebApplication1.Controllers
+@model Employee
+
+
+@{
+    ViewBag.Title = "details";
+}
+
+<h2>details</h2>
+
+
+
+<h2>details view</h2>
+
+@Model.id<br />
+@Model.name<br />
+@Model.salary<br />
+
+@Html.ActionLink("go back to index", "index")

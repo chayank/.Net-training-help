@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "PracticeEx4";
+}
+
+<h2>PracticeEx4</h2>
+
+@{
+    List<string> operations = new List<string> { "boy", "girl", "lady","gentlemen" };
+
+}
+
+@for (int i = 0; i <= 3; i++)
+{
+    
+    <input type="radio" name="pm" id=@operations[i] value=@operations[i] /><label for=@operations[i]>@operations[i]</label><br/>
+}

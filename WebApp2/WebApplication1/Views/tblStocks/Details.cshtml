@@ -1,0 +1,58 @@
+﻿@model WebApplication1.Models.tblStock
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblStock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.stockName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stockName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.quantity_remaining)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.quantity_remaining)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblUser.fname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblUser.fname)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.stockId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

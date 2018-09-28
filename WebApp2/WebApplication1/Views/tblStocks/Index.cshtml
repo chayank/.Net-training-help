@@ -1,0 +1,57 @@
+﻿@model IEnumerable<WebApplication1.Models.tblStock>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.stockName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity_remaining)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblUser.fname)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.stockName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity_remaining)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblUser.fname)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.stockId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.stockId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.stockId })
+        </td>
+    </tr>
+}
+
+</table>

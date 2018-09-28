@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="58875e9be10a4aa183bc2d0f29fc2a4e" Name="Diagram1">
+        <EntityTypeShape EntityType="StpDBModel.tblAuthenticate" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblHolding" Width="1.5" PointX="5.25" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblMarketdata" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblSessionsData" Width="1.5" PointX="3" PointY="11.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblStock" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblStocksHistory" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblStocksPrice" Width="1.5" PointX="5.25" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblTradeRequest" Width="1.5" PointX="8.25" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblTransaction" Width="1.5" PointX="10.5" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblUser" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StpDBModel.tblWallet" Width="1.5" PointX="3" PointY="20.5" IsExpanded="true" />
+        <AssociationConnector Association="StpDBModel.FK__tblAuthenti__uid__15502E78" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblHoldin__stock__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblHoldings__uid__02FC7413" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblSessions__uid__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblStocks__added__1FCDBCEB" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblStocks__stock__22AA2996" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblStocks__stock__276EDEB3" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblTradeR__stock__2B3F6F97" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblTradeReq__uid__2A4B4B5E" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblTransa__buyer__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblTransa__selle__6EF57B66" ManuallyRouted="false" />
+        <AssociationConnector Association="StpDBModel.FK__tblWallet__uid__1920BF5C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

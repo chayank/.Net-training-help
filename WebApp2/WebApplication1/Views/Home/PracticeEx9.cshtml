@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "PracticeEx9";
+}
+
+<h2>PracticeEx9</h2>
+
+@{
+    string[] s = ViewBag.names;
+}
+
+<ol>
+    @for (int i = 0; i < s.Length; i++)
+    {
+        <li>@s[i]</li>
+    }
+</ol>
+
+<br />
+@Html.ActionLink("go to home", "index", "home")

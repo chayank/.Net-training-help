@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewBag.Title = "DashBoard";
+}
+
+<h2>DashBoard</h2>
+
+
+@Html.ActionLink("go to confidential", "Confidential", "Guest") <br />
+
+@Html.ActionLink("go to postback demo ", "Index", "PostBackDemos")
+
+
+@using (Html.BeginForm())
+{
+    <br />
+    <input type="submit" name="bp" value="logout" />
+}
+
+@ViewBag.msg;

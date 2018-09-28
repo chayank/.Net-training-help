@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = "~/Views/Shared/mylay1.cshtml";
+}
+
+@using WebApplication1.Controllers
+@model Employee
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Strongly typed view</h2>
+
+@Model.id<br />
+@Model.name<br />
+@Model.salary<br />
+
+
+@Html.ActionLink("go  to list of employees", "listofemployees")<br />
+@Html.ActionLink("go  to details of employee", "details")<br />
+@Html.ActionLink("go  to list of employees", "listofemployees")<br />
+@Html.ActionLink("go  to list of employees", "listofemployees")<br />

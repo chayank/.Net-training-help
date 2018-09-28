@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewBag.Title = "MultiplicationPartialView";
+}
+
+<h5> @Model view </h5>
+@for(int i = 1; i <= 10; i++)
+{
+    <h5>@Model * @i = @(Model * i) </h5> <br/>
+}

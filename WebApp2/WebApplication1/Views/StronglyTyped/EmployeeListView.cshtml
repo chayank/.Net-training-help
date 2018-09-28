@@ -1,0 +1,20 @@
+﻿@using WebApplication1.Controllers
+
+
+<table class="table table-bordered">
+
+    <tbody>
+        @foreach (Employee e in Model)
+        {
+            <tr>
+                <td>@e.id</td>
+                <td>
+                    @Html.ActionLink(@e.name, "details", new { id = e.id })
+                </td>
+                <td>@e.salary</td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

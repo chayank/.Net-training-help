@@ -1,0 +1,58 @@
+﻿
+@{
+    Layout = "~/Views/Shared/mylay1.cshtml";
+}
+
+<h1>ETA mall</h1>
+
+@{
+    string name = "chayank";
+    string city = "mysore";
+}
+
+hello @name <br />
+city is : @city  <br />
+
+time : @DateTime.Now.ToLongTimeString()
+
+@using (Html.BeginForm())
+{
+    <input type="submit" />
+}
+
+@ViewBag.msg
+<br />
+
+<a href=@Url.Content("../Homepage.aspx")>go back to webform</a>
+<br />
+@Html.ActionLink("go to ex1", "Practice", "home")
+<br />
+@Html.ActionLink("go to ex2", "PracticeEx2", "home")
+<br />
+@Html.ActionLink("go to ex3", "PracticeEx3", "home")
+<br />
+@Html.ActionLink("go to ex4", "PracticeEx4", "home")
+<br />
+@Html.ActionLink("go to ex5", "PracticeEx5", "home")
+<br />
+@Html.ActionLink("go to ex6", "PracticeEx6", "home")
+<br />
+@Html.ActionLink("go to ex7", "PracticeEx7", "home")
+<br />
+
+@Html.ActionLink("go to ex8", "PracticeEx8", "home")
+<br />
+
+@Html.ActionLink("go to ex9", "PracticeEx9", "home")
+<br />
+
+@Html.ActionLink("go to ex10", "PracticeEx9", "home")
+<br />
+@Html.ActionLink("go to ex10", "PracticeEx10", "home")
+<br />
+@Html.ActionLink("go to ex11", "PracticeEx11", "home")
+<br />
+
+
+@Html.ActionLink("go to postback examples", "index", "PostBackDemos")
+<br />

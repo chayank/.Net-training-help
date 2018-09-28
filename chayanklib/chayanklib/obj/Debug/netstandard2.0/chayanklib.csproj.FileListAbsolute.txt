@@ -1,0 +1,9 @@
+c:\users\lenovo\source\repos\chayanklib\chayanklib\bin\Debug\netstandard2.0\chayanklib.deps.json
+c:\users\lenovo\source\repos\chayanklib\chayanklib\bin\Debug\netstandard2.0\chayanklib.dll
+c:\users\lenovo\source\repos\chayanklib\chayanklib\bin\Debug\netstandard2.0\chayanklib.pdb
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.csprojAssemblyReference.cache
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.csproj.CoreCompileInputs.cache
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.AssemblyInfoInputs.cache
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.AssemblyInfo.cs
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.dll
+c:\users\lenovo\source\repos\chayanklib\chayanklib\obj\Debug\netstandard2.0\chayanklib.pdb

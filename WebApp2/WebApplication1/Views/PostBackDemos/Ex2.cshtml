@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Ex2";
+}
+
+<h2>Post back Ex2</h2>
+
+@using (Html.BeginForm())
+{
+    <input type="submit" name="b1" value="Accept" />
+    <input type="submit" name="b1" value="reject" />
+}
+
+
+@ViewBag.msg
+
+@Html.ActionLink("go to home", "index", "PostBackDemos")

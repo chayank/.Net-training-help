@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StpDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblStocks">
+    <Key>
+      <PropertyRef Name="stockId" />
+    </Key>
+    <Property Name="stockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stockName" Type="varchar" MaxLength="20" />
+    <Property Name="quantity" Type="int" />
+    <Property Name="quantity_remaining" Type="int" />
+    <Property Name="addedBy" Type="int" />
+    <Property Name="status" Type="char" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="tblStocksPrice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="stockId" Type="int" />
+    <Property Name="timeOfDay" Type="datetime" />
+    <Property Name="currentPrice" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="lowPrice" Type="numeric" Precision="10" Scale="2" />
+    <Property Name="highPrice" Type="numeric" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="tblUsers">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="userName" Type="varchar" MaxLength="100" />
+    <Property Name="password" Type="varchar" MaxLength="100" />
+    <Property Name="dateAdded" Type="datetime" />
+    <Property Name="roles" Type="char" MaxLength="1" />
+    <Property Name="fname" Type="varchar" MaxLength="20" />
+    <Property Name="lname" Type="varchar" MaxLength="20" />
+    <Property Name="email" Type="varchar" MaxLength="40" />
+    <Property Name="dob" Type="date" />
+    <Property Name="mobile" Type="bigint" />
+    <Property Name="address" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="char" MaxLength="1" />
+  </EntityType>
+  <Association Name="FK__tblStocks__added__30F848ED">
+    <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+    <End Role="tblStocks" Type="Self.tblStocks" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUsers">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="tblStocks">
+        <PropertyRef Name="addedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblStocks__stock__33D4B598">
+    <End Role="tblStocks" Type="Self.tblStocks" Multiplicity="0..1" />
+    <End Role="tblStocksPrice" Type="Self.tblStocksPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblStocks">
+        <PropertyRef Name="stockId" />
+      </Principal>
+      <Dependent Role="tblStocksPrice">
+        <PropertyRef Name="stockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="StpDBModelStoreContainer">
+    <EntitySet Name="tblStocks" EntityType="Self.tblStocks" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblStocksPrice" EntityType="Self.tblStocksPrice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblStocks__added__30F848ED" Association="Self.FK__tblStocks__added__30F848ED">
+      <End Role="tblUsers" EntitySet="tblUsers" />
+      <End Role="tblStocks" EntitySet="tblStocks" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblStocks__stock__33D4B598" Association="Self.FK__tblStocks__stock__33D4B598">
+      <End Role="tblStocks" EntitySet="tblStocks" />
+      <End Role="tblStocksPrice" EntitySet="tblStocksPrice" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,32 @@
+﻿
+@using WebApplication1.Controllers
+@{
+    ViewBag.Title = "PracticeEx11";
+}
+
+<h2>PracticeEx11</h2>
+
+@{
+    List<Employee> s = ViewBag.names;
+}
+
+
+<table border="1">
+    <tr>
+        <td>id</td>
+        <td>names</td>
+        <td>names</td>
+
+    </tr>
+    @for (int i = 0; i < s.Count; i++)
+    {
+        <tr>
+            <td>@s[i].id</td>
+            <td>@Html.ActionLink( @s[i].name,"details",new { id=s[i].id})</td>
+            <td>@s[i].salary</td>
+        </tr>
+    }
+</table>
+
+
+@Html.ActionLink("go to home", "index", "home")

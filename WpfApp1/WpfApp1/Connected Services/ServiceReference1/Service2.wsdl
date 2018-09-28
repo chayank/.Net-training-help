@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Service2" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:52327/Service2.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:52327/Service2.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:52327/Service2.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WcfService1" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IService2_getStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStock" />
+  </wsdl:message>
+  <wsdl:message name="IService2_getStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService2_getStockRowbyId_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStockRowbyId" />
+  </wsdl:message>
+  <wsdl:message name="IService2_getStockRowbyId_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStockRowbyIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService2_getStockNameById_InputMessage">
+    <wsdl:part name="parameters" element="tns:getStockNameById" />
+  </wsdl:message>
+  <wsdl:message name="IService2_getStockNameById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:getStockNameByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService2_setStock_InputMessage">
+    <wsdl:part name="parameters" element="tns:setStock" />
+  </wsdl:message>
+  <wsdl:message name="IService2_setStock_OutputMessage">
+    <wsdl:part name="parameters" element="tns:setStockResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService2_deleteStockById_InputMessage">
+    <wsdl:part name="parameters" element="tns:deleteStockById" />
+  </wsdl:message>
+  <wsdl:message name="IService2_deleteStockById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:deleteStockByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="IService2_updateStockById_InputMessage">
+    <wsdl:part name="parameters" element="tns:updateStockById" />
+  </wsdl:message>
+  <wsdl:message name="IService2_updateStockById_OutputMessage">
+    <wsdl:part name="parameters" element="tns:updateStockByIdResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IService2">
+    <wsdl:operation name="getStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/getStock" message="tns:IService2_getStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/getStockResponse" message="tns:IService2_getStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStockRowbyId">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/getStockRowbyId" message="tns:IService2_getStockRowbyId_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/getStockRowbyIdResponse" message="tns:IService2_getStockRowbyId_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="getStockNameById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/getStockNameById" message="tns:IService2_getStockNameById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/getStockNameByIdResponse" message="tns:IService2_getStockNameById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="setStock">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/setStock" message="tns:IService2_setStock_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/setStockResponse" message="tns:IService2_setStock_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="deleteStockById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/deleteStockById" message="tns:IService2_deleteStockById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/deleteStockByIdResponse" message="tns:IService2_deleteStockById_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="updateStockById">
+      <wsdl:input wsaw:Action="http://tempuri.org/IService2/updateStockById" message="tns:IService2_updateStockById_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IService2/updateStockByIdResponse" message="tns:IService2_updateStockById_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IService2" type="tns:IService2">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="getStock">
+      <soap:operation soapAction="http://tempuri.org/IService2/getStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStockRowbyId">
+      <soap:operation soapAction="http://tempuri.org/IService2/getStockRowbyId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getStockNameById">
+      <soap:operation soapAction="http://tempuri.org/IService2/getStockNameById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="setStock">
+      <soap:operation soapAction="http://tempuri.org/IService2/setStock" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="deleteStockById">
+      <soap:operation soapAction="http://tempuri.org/IService2/deleteStockById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="updateStockById">
+      <soap:operation soapAction="http://tempuri.org/IService2/updateStockById" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Service2">
+    <wsdl:port name="BasicHttpBinding_IService2" binding="tns:BasicHttpBinding_IService2">
+      <soap:address location="http://localhost:52327/Service2.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

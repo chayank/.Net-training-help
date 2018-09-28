@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StpDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="uid" />
+    </Key>
+    <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="dateAdded" Type="DateTime" Precision="3" />
+    <Property Name="roles" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Name="fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="dob" Type="DateTime" Precision="0" />
+    <Property Name="mobile" Type="Int64" />
+    <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="Stock" Relationship="StpDBModel.FK__tblStocks__added__30F848ED" FromRole="tblUser" ToRole="tblStock" />
+  </EntityType>
+  <EntityContainer Name="StpDBEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Users" EntityType="StpDBModel.User" />
+    <EntitySet Name="Stocks" EntityType="StpDBModel.Stock" />
+    <AssociationSet Name="FK__tblStocks__added__30F848ED" Association="StpDBModel.FK__tblStocks__added__30F848ED">
+      <End Role="tblUser" EntitySet="Users" />
+      <End Role="tblStock" EntitySet="Stocks" />
+    </AssociationSet>
+    <EntitySet Name="StocksPrices" EntityType="StpDBModel.StocksPrice" />
+    <AssociationSet Name="FK__tblStocks__stock__33D4B598" Association="StpDBModel.FK__tblStocks__stock__33D4B598">
+      <End Role="Stock" EntitySet="Stocks" />
+      <End Role="tblStocksPrice" EntitySet="StocksPrices" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="stockId" />
+    </Key>
+    <Property Name="stockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stockName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" />
+    <Property Name="quantity_remaining" Type="Int32" />
+    <Property Name="addedBy" Type="Int32" />
+    <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="User" Relationship="StpDBModel.FK__tblStocks__added__30F848ED" FromRole="tblStock" ToRole="tblUser" />
+    <NavigationProperty Name="StocksPrice" Relationship="StpDBModel.FK__tblStocks__stock__33D4B598" FromRole="Stock" ToRole="tblStocksPrice" />
+  </EntityType>
+  <Association Name="FK__tblStocks__added__30F848ED">
+    <End Type="StpDBModel.User" Role="tblUser" Multiplicity="0..1" />
+    <End Type="StpDBModel.Stock" Role="tblStock" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblUser">
+        <PropertyRef Name="uid" />
+      </Principal>
+      <Dependent Role="tblStock">
+        <PropertyRef Name="addedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="StocksPrice">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="stockId" Type="Int32" />
+    <Property Name="timeOfDay" Type="DateTime" Precision="3" />
+    <Property Name="currentPrice" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="lowPrice" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="highPrice" Type="Decimal" Precision="10" Scale="2" />
+    <NavigationProperty Name="Stock" Relationship="StpDBModel.FK__tblStocks__stock__33D4B598" FromRole="tblStocksPrice" ToRole="Stock" />
+  </EntityType>
+  <Association Name="FK__tblStocks__stock__33D4B598">
+    <End Type="StpDBModel.Stock" Role="Stock" Multiplicity="0..1" />
+    <End Type="StpDBModel.StocksPrice" Role="tblStocksPrice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Stock">
+        <PropertyRef Name="stockId" />
+      </Principal>
+      <Dependent Role="tblStocksPrice">
+        <PropertyRef Name="stockId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

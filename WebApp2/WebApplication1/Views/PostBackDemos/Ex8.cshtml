@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Ex8";
+}
+
+<h2>Ex8</h2>
+
+@{ 
+    List<string> op = TempData.Peek("op") as List<string>;
+}
+
+@using (Html.BeginForm())
+{
+    foreach(string op1 in op)
+    {
+        <input type="submit" name="op" value=@op1  />
+    }
+}
+
+<hr/>
+@ViewBag.msg

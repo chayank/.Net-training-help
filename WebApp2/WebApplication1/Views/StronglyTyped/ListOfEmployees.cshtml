@@ -1,0 +1,39 @@
+﻿@{
+    Layout = "~/Views/Shared/mylay1.cshtml";
+}
+
+@using WebApplication1.Controllers
+@model IEnumerable<Employee>
+@{
+    ViewBag.Title = "ListOfEmployees";
+}
+
+
+@Html.Partial("partialview1", "kiran")<br />
+
+<h2>ListOfEmployees</h2>
+@Html.Partial("employeelistview", Model)<br />
+
+<h2>specific ListOfEmployees with posting as devop</h2>
+@Html.Partial("employeelistview", Model.Where(x => x.posting == "devop"))<br />
+<br />
+<table>
+    <tbody>
+        <tr>
+
+            @for (int i = 5; i <= 10; i++)
+            {
+                <td>
+                    @Html.Partial("multiplicationpartialview", @i)
+                </td>
+            }
+
+        </tr>
+
+    </tbody>
+</table>
+
+
+
+
+@Html.ActionLink("go back to index", "index")

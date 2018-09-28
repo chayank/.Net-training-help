@@ -1,0 +1,26 @@
+﻿<Window x:Class="WpfApp1.Window5"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="Window5" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="txt1" HorizontalAlignment="Left" Height="23" Margin="223,160,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txt1_TextChanged"/>
+        <Button Content="Search" HorizontalAlignment="Left" Margin="399,158,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Label x:Name="id" Content="id" HorizontalAlignment="Left" Margin="163,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="name" Content="Name" HorizontalAlignment="Left" Margin="163,220,0,0" VerticalAlignment="Top"/>
+        <Label Content="qty" HorizontalAlignment="Left" Margin="163,278,0,0" VerticalAlignment="Top"/>
+        <Label Content="status" HorizontalAlignment="Left" Margin="163,338,0,0" VerticalAlignment="Top"/>
+        <Button Name="btn2" Content="Insert" HorizontalAlignment="Left" Margin="399,230,0,0" VerticalAlignment="Top" Width="75" Click="btn2_Click"/>
+        <TextBox Name="txt2" HorizontalAlignment="Left" Height="23" Margin="223,223,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txt2_TextChanged"/>
+        <TextBox Name="txt3" HorizontalAlignment="Left" Height="23" Margin="223,281,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txt3_TextChanged"/>
+        <TextBox Name="txt4" HorizontalAlignment="Left" Height="23" Margin="223,336,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" TextChanged="txt4_TextChanged"/>
+        <Button Name="btn3" Content="delete" HorizontalAlignment="Left" Margin="399,282,0,0" VerticalAlignment="Top" Width="75" Click="btn3_Click"/>
+        <Button Name="btn4" Content="update" HorizontalAlignment="Left" Margin="399,336,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.48,-0.273" Click="btn4_Click"/>
+        <Label Name="stat" Content="" HorizontalAlignment="Left" Margin="652,160,0,0" VerticalAlignment="Top"/>
+        <Label Content="CRUD Operations on tblStock" HorizontalAlignment="Left" Margin="328,64,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

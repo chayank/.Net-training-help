@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="StpDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tblStocks">
+          <Key>
+            <PropertyRef Name="stockId" />
+          </Key>
+          <Property Name="stockId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stockName" Type="varchar" MaxLength="20" />
+          <Property Name="quantity" Type="int" />
+          <Property Name="quantity_remaining" Type="int" />
+          <Property Name="addedBy" Type="int" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="tblStocksPrice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="stockId" Type="int" />
+          <Property Name="timeOfDay" Type="datetime" />
+          <Property Name="currentPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="lowPrice" Type="numeric" Precision="10" Scale="2" />
+          <Property Name="highPrice" Type="numeric" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="tblUsers">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userName" Type="varchar" MaxLength="100" />
+          <Property Name="password" Type="varchar" MaxLength="100" />
+          <Property Name="dateAdded" Type="datetime" />
+          <Property Name="roles" Type="char" MaxLength="1" />
+          <Property Name="fname" Type="varchar" MaxLength="20" />
+          <Property Name="lname" Type="varchar" MaxLength="20" />
+          <Property Name="email" Type="varchar" MaxLength="40" />
+          <Property Name="dob" Type="date" />
+          <Property Name="mobile" Type="bigint" />
+          <Property Name="address" Type="varchar" MaxLength="100" />
+          <Property Name="status" Type="char" MaxLength="1" />
+        </EntityType>
+        <Association Name="FK__tblStocks__added__30F848ED">
+          <End Role="tblUsers" Type="Self.tblUsers" Multiplicity="0..1" />
+          <End Role="tblStocks" Type="Self.tblStocks" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUsers">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="tblStocks">
+              <PropertyRef Name="addedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__tblStocks__stock__33D4B598">
+          <End Role="tblStocks" Type="Self.tblStocks" Multiplicity="0..1" />
+          <End Role="tblStocksPrice" Type="Self.tblStocksPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblStocks">
+              <PropertyRef Name="stockId" />
+            </Principal>
+            <Dependent Role="tblStocksPrice">
+              <PropertyRef Name="stockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="StpDBModelStoreContainer">
+          <EntitySet Name="tblStocks" EntityType="Self.tblStocks" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblStocksPrice" EntityType="Self.tblStocksPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUsers" EntityType="Self.tblUsers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__tblStocks__added__30F848ED" Association="Self.FK__tblStocks__added__30F848ED">
+            <End Role="tblUsers" EntitySet="tblUsers" />
+            <End Role="tblStocks" EntitySet="tblStocks" />
+          </AssociationSet>
+          <AssociationSet Name="FK__tblStocks__stock__33D4B598" Association="Self.FK__tblStocks__stock__33D4B598">
+            <End Role="tblStocks" EntitySet="tblStocks" />
+            <End Role="tblStocksPrice" EntitySet="tblStocksPrice" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="StpDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="uid" />
+          </Key>
+          <Property Name="uid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="dateAdded" Type="DateTime" Precision="3" />
+          <Property Name="roles" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="lname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="dob" Type="DateTime" Precision="0" />
+          <Property Name="mobile" Type="Int64" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="Stock" Relationship="StpDBModel.FK__tblStocks__added__30F848ED" FromRole="tblUser" ToRole="tblStock" />
+        </EntityType>
+        <EntityContainer Name="StpDBEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="StpDBModel.User" />
+          <EntitySet Name="Stocks" EntityType="StpDBModel.Stock" />
+          <AssociationSet Name="FK__tblStocks__added__30F848ED" Association="StpDBModel.FK__tblStocks__added__30F848ED">
+            <End Role="tblUser" EntitySet="Users" />
+            <End Role="tblStock" EntitySet="Stocks" />
+          </AssociationSet>
+          <EntitySet Name="StocksPrices" EntityType="StpDBModel.StocksPrice" />
+          <AssociationSet Name="FK__tblStocks__stock__33D4B598" Association="StpDBModel.FK__tblStocks__stock__33D4B598">
+            <End Role="Stock" EntitySet="Stocks" />
+            <End Role="tblStocksPrice" EntitySet="StocksPrices" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Stock">
+          <Key>
+            <PropertyRef Name="stockId" />
+          </Key>
+          <Property Name="stockId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stockName" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="quantity" Type="Int32" />
+          <Property Name="quantity_remaining" Type="Int32" />
+          <Property Name="addedBy" Type="Int32" />
+          <Property Name="status" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <NavigationProperty Name="User" Relationship="StpDBModel.FK__tblStocks__added__30F848ED" FromRole="tblStock" ToRole="tblUser" />
+          <NavigationProperty Name="StocksPrice" Relationship="StpDBModel.FK__tblStocks__stock__33D4B598" FromRole="Stock" ToRole="tblStocksPrice" />
+        </EntityType>
+        <Association Name="FK__tblStocks__added__30F848ED">
+          <End Type="StpDBModel.User" Role="tblUser" Multiplicity="0..1" />
+          <End Type="StpDBModel.Stock" Role="tblStock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tblUser">
+              <PropertyRef Name="uid" />
+            </Principal>
+            <Dependent Role="tblStock">
+              <PropertyRef Name="addedBy" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StocksPrice">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="stockId" Type="Int32" />
+          <Property Name="timeOfDay" Type="DateTime" Precision="3" />
+          <Property Name="currentPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="lowPrice" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="highPrice" Type="Decimal" Precision="10" Scale="2" />
+          <NavigationProperty Name="Stock" Relationship="StpDBModel.FK__tblStocks__stock__33D4B598" FromRole="tblStocksPrice" ToRole="Stock" />
+        </EntityType>
+        <Association Name="FK__tblStocks__stock__33D4B598">
+          <End Type="StpDBModel.Stock" Role="Stock" Multiplicity="0..1" />
+          <End Type="StpDBModel.StocksPrice" Role="tblStocksPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stock">
+              <PropertyRef Name="stockId" />
+            </Principal>
+            <Dependent Role="tblStocksPrice">
+              <PropertyRef Name="stockId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="StpDBModelStoreContainer" CdmEntityContainer="StpDBEntities1">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="StpDBModel.User">
+              <MappingFragment StoreEntitySet="tblUsers">
+                <ScalarProperty Name="uid" ColumnName="uid" />
+                <ScalarProperty Name="userName" ColumnName="userName" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+                <ScalarProperty Name="roles" ColumnName="roles" />
+                <ScalarProperty Name="fname" ColumnName="fname" />
+                <ScalarProperty Name="lname" ColumnName="lname" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="dob" ColumnName="dob" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="status" ColumnName="status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="StpDBModel.Stock">
+              <MappingFragment StoreEntitySet="tblStocks">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+                <ScalarProperty Name="quantity_remaining" ColumnName="quantity_remaining" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="stockName" ColumnName="stockName" />
+                <ScalarProperty Name="stockId" ColumnName="stockId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StocksPrices">
+            <EntityTypeMapping TypeName="StpDBModel.StocksPrice">
+              <MappingFragment StoreEntitySet="tblStocksPrice">
+                <ScalarProperty Name="highPrice" ColumnName="highPrice" />
+                <ScalarProperty Name="lowPrice" ColumnName="lowPrice" />
+                <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+                <ScalarProperty Name="timeOfDay" ColumnName="timeOfDay" />
+                <ScalarProperty Name="stockId" ColumnName="stockId" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="StpDBModelStoreContainer" CdmEntityContainer="StpDBEntities1">
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="StpDBModel.User">
+        <MappingFragment StoreEntitySet="tblUsers">
+          <ScalarProperty Name="uid" ColumnName="uid" />
+          <ScalarProperty Name="userName" ColumnName="userName" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="dateAdded" ColumnName="dateAdded" />
+          <ScalarProperty Name="roles" ColumnName="roles" />
+          <ScalarProperty Name="fname" ColumnName="fname" />
+          <ScalarProperty Name="lname" ColumnName="lname" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="dob" ColumnName="dob" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="status" ColumnName="status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stocks">
+      <EntityTypeMapping TypeName="StpDBModel.Stock">
+        <MappingFragment StoreEntitySet="tblStocks">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="addedBy" ColumnName="addedBy" />
+          <ScalarProperty Name="quantity_remaining" ColumnName="quantity_remaining" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="stockName" ColumnName="stockName" />
+          <ScalarProperty Name="stockId" ColumnName="stockId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="StocksPrices">
+      <EntityTypeMapping TypeName="StpDBModel.StocksPrice">
+        <MappingFragment StoreEntitySet="tblStocksPrice">
+          <ScalarProperty Name="highPrice" ColumnName="highPrice" />
+          <ScalarProperty Name="lowPrice" ColumnName="lowPrice" />
+          <ScalarProperty Name="currentPrice" ColumnName="currentPrice" />
+          <ScalarProperty Name="timeOfDay" ColumnName="timeOfDay" />
+          <ScalarProperty Name="stockId" ColumnName="stockId" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
